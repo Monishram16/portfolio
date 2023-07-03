@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Portfolio</title>
+  <body>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+      </head>
+      <body>
+        <div class="header">
+          <div class="container">
+            <nav>
+              <img src="images (1).jpeg" class="logo" />
+              <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#My work">Mywork</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+            <div class="header-text">
+              <p>Frontend Developer</p>
+              <h1>
+                I am <span> Monish Ram J</span><br />
+                From Coimbatore
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div id="About">
+          <div class="container">
+            <div class="row">
+              <div class="About-col-1">
+                <img src="IMG_20190407_220616.jpg" />
+              </div>
+              <div class="About-col-2">
+                <h1 class="subtitle">About me:</h1>
+                <p>
+                  Hello Guys,Welcome To My Website And Myself Monish Ram J.I am
+                  a Frontend Developer.Currently I am Looking for a Job and I am
+                  Expertise in UI With ReactJs.
+                </p>
+                <div class="tab-titles">
+                  <p class="tab-links active-link" onclick="first('skills')">
+                    Skills
+                  </p>
+                  <p class="tab-links" onclick="first('education')">
+                    Education
+                  </p>
+                  <p class="tab-links" onclick="first('project')">Projects</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                  <ul>
+                    <li><span>UI/UX</span><br />Developer</li>
+                    <li><span>Frontend Developer</span><br />Web Developer</li>
+                  </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                  <ul>
+                    <li><span>2020-2022</span><br />MSC(CS)</li>
+                    <li><span>2016-2019</span><br />BSC(CS)</li>
+                  </ul>
+                </div>
+                <div class="tab-contents" id="project">
+                  <ul>
+                    <li>
+                      <span>1.Billing System for Departmental Stores.</span
+                      ><br />
+                    </li>
+                    <li><span>2.Software Piracy Protection.</span><br /></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- services-->
+        <div id="services">
+          <div class="container">
+            <h1 class="subtitle">My Services:</h1>
+            <div class="services-list">
+              <div>
+                <h2>Web Developing</h2>
+                <p>We Will Provide You Great Websites To Your Company.</p>
+                <a href="">Learn more</a>
+              </div>
+              <div>
+                <h2>UI/UX Design</h2>
+                <p>
+                  We Make Your Websites Attractive And Upgraded To Latest
+                  Technologies.
+                </p>
+                <a href="">Learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--portfolio-->
+        <div id="My work">
+          <div class="container">
+            <h1 class="subtitle">My Work:</h1>
+            <div class="work-list">
+              <div class="work">
+                <img src="web4.png" />
+                <div class="layer">
+                  <h3>Forms</h3>
+                  <p>This Form contains the details of the users.</p>
+                </div>
+              </div>
+              <div class="work">
+                <img src="web1.jpg" />
+                <div class="layer">
+                  <h3>UI/UX DESIGN</h3>
+                  <p>Used for Designing purpose.</p>
+                </div>
+              </div>
+              <div class="work">
+                <img src="web2.jpg" />
+                <div class="layer">
+                  <h3>Shopping Website</h3>
+                  <p>This Website contains the details of the Shops.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--contact -->
+        <div id="contact">
+          <div class="container">
+            <div class="row">
+              <div class="contact-left">
+                <h1 class="subtitle">Contact me:</h1>
+                <a href="Mycv.pdf" download class="btn btn2">Download Cv</a>
+                <p>monishram998@gmail.com</p>
+                <p>7904153228</p>
+              </div>
+              <br />
+
+              <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                  <input
+                    type="text"
+                    name="Name"
+                    placeholder="Your Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="Email"
+                    placeholder="Your Mail-id"
+                    required
+                  />
+                  <textarea
+                    name="Message"
+                    rows="6"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                  <br />
+                  <button type="submit" class="btn btn3">Submit</button>
+                </form>
+                <span id="msg"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>copyright &copy; made by Monish ram J.All Rights Reserved.</p>
+        </div>
+        <script src="script.js"></script>
+        <script>
+          const scriptURL =
+            'https://script.google.com/macros/s/AKfycbzXtO5nrE0cPgoRjzpZqxNg__rj13yf7Ttg8Hru-R8gCCGCZtTuehSJU-jxy4ivCfIGPQ/exec';
+          const form = document.forms['submit-to-google-sheet'];
+          const msg = document.getElementById('msg');
+
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+              .then((response) => {
+                msg.innerHTML = 'Message sent successfully';
+                setTimeout(function () {
+                  msg.innerHTML = '';
+                }, 5000);
+                form.reset();
+              })
+              .catch((error) => console.error('Error!', error.message));
+          });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>
